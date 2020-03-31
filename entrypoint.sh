@@ -2,7 +2,7 @@
 set -e -u
 
 GITHUB_PAGES_BRANCH="${INPUT_GITHUB_PAGES_BRANCH:-"gh-pages"}"
-GITHUB_PAGES_SOURCE_DIR="${INPUT_GITHUB_PAGES_SOURCE_DIR:-"dist"}"
+GITHUB_PAGES_SOURCE_DIR="$(cd "${INPUT_GITHUB_PAGES_SOURCE_DIR:-"dist"}" && pwd)"
 GITHUB_PAGES_REPLACE="${INPUT_GITHUB_PAGES_REPLACE:-"false"}"
 
 GITHUB_REPOSITORY_URI="https://x-access-token:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
@@ -22,9 +22,9 @@ git config user.name "GitHub Actions"
 git config user.email "<>"
 
 echo ''
-echo "--- Commit changes from ${GITHUB_PAGES_SOURCE_DIR} directory"
+echo "--- Commit changes from ${INPUT_GITHUB_PAGES_SOURCE_DIR} directory"
 git rm -r --quiet .
-cp -a -R "../${GITHUB_PAGES_SOURCE_DIR}/" './'
+cp -a -R "${GITHUB_PAGES_SOURCE_DIR}/" './'
 git add .
 if git commit -am "${COMMIT_MESSAGE}" -m "${COMMIT_DETAILS}" --quiet
 then
