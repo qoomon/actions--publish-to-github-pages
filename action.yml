@@ -1,12 +1,18 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'Deploy To GitHub Pages'
+description: 'Deploy directory to GitHub Pages branch'
+author: 'qoomon'
+inputs:
+  GITHUB_PAGES_SOURCE_DIR:
+    description: 'Source Directory'
+    default: 'dist'
+  GITHUB_PAGES_BRANCH:
+    description: 'GitHub Pages Branch Name'
+    default: gh-pages
+  GITHUB_PAGES_REPLACE:
+    description: 'If set to true this action will replace current GitHub Pages branch'
+    default: false
+  GITHUB_TOKEN:
+    description: '${{ secrets.GITHUB_TOKEN }}'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.myInput }}
