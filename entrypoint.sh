@@ -12,17 +12,17 @@ COMMIT_MESSAGE="$(git log -1 --format='%s')"
 COMMIT_DETAILS="$(git log -1 --format='commit %h%nAuthor: %an <%ae>%nDate:  %ad')"
 
 echo ''
-echo "--- Checkout ${GITHUB_PAGES_BRANCH} branch"
+echo "--- Checkout '${GITHUB_PAGES_BRANCH}' branch"
 rm -rf "${GITHUB_PAGES_DIR}"
 git clone --single-branch --branch "${GITHUB_PAGES_BRANCH}" --depth 1 \
   "${GITHUB_REPOSITORY_URI}" "${GITHUB_PAGES_DIR}"
   
 cd "${GITHUB_PAGES_DIR}"
-git config user.name "GitHub Actions"
-git config user.email "<>"
+git config user.name 'GitHub Actions'
+git config user.email '<>'
 
 echo ''
-echo "--- Commit changes from ${INPUT_GITHUB_PAGES_SOURCE_DIR} directory"
+echo "--- Commit changes from '${INPUT_GITHUB_PAGES_SOURCE_DIR}' directory"
 git rm -r --quiet .
 cp -a -R "${GITHUB_PAGES_SOURCE_DIR}/" './'
 git add .
