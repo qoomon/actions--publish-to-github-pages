@@ -28,7 +28,7 @@ cp -a -R -T "${GITHUB_PAGES_SOURCE_DIR}" .
 git add .
 if git commit -am "${COMMIT_MESSAGE}" -m "${COMMIT_DETAILS}" --quiet
 then
-    git show --name-status --format=format:
+    git show --name-status
     
     echo ''
     echo '--- Push Changes'
