@@ -12,7 +12,7 @@ inputs:
     description: 'If set to true this action will replace current GitHub Pages branch'
     default: false
   GITHUB_TOKEN:
-    description: '${{ secrets.GITHUB_TOKEN }}'
+    description: '\${{ secrets.GITHUB_TOKEN }}'
 runs:
   using: 'docker'
   image: 'Dockerfile'
