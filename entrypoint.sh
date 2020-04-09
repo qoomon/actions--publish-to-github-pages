@@ -9,7 +9,7 @@ GITHUB_REPOSITORY_URI="https://x-access-token:${INPUT_GITHUB_TOKEN}@github.com/$
 GITHUB_PAGES_DIR='.gh-pages'
 
 COMMIT_MESSAGE="$(git log -1 --format='%s')"
-COMMIT_DETAILS="$(git log -1 --format='commit %h%nAuthor: %an <%ae>%nDate:  %ad')"
+COMMIT_DETAILS="$(git log -1 --format="commit %h%nAuthor: %an <%ae>%nDate:  %ad")"
 
 echo ''
 echo "--- Checkout '${GITHUB_PAGES_BRANCH}' branch"
@@ -18,7 +18,7 @@ git clone --single-branch --branch "${GITHUB_PAGES_BRANCH}" --depth 1 \
   "${GITHUB_REPOSITORY_URI}" "${GITHUB_PAGES_DIR}"
   
 cd "${GITHUB_PAGES_DIR}"
-git config user.name 'GitHub Actions'
+git config user.name "GitHub Actions on behalf of $GITHUB_ACTOR"
 git config user.email '<>'
 
 echo ''
