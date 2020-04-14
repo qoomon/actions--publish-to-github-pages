@@ -18,8 +18,8 @@ git clone --single-branch --branch "${GITHUB_PAGES_BRANCH}" --depth 1 \
   "${GITHUB_REPOSITORY_URI}" "${GITHUB_PAGES_DIR}"
   
 cd "${GITHUB_PAGES_DIR}"
-git config user.name "github-actions"
-git config user.email '<>'
+git config user.name 'github-actions[bot]'
+git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
 echo ''
 echo "--- Commit changes from '${INPUT_GITHUB_PAGES_SOURCE_DIR}' directory"
