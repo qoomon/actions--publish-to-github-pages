@@ -1,8 +1,9 @@
 name: 'Deploy To GitHub Pages'
 description: 'Deploys a directory to GitHub Pages branch'
-icon: book-open
-color: blue
 author: 'qoomon'
+branding:
+  icon: book-open
+  color: blue
 inputs:
   GITHUB_PAGES_SOURCE_DIR:
     description: 'Source Directory'
