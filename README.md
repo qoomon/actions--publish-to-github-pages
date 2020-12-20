@@ -1,7 +1,7 @@
 # Deploy To GitHub Pages Action
 
 
-### Usage
+### Usage Example
 ```yaml
 name: Build & Deploy
 
