@@ -23,7 +23,7 @@ git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
 echo ''
 echo "--- Commit changes from '${INPUT_GITHUB_PAGES_SOURCE_DIR}' directory"
-git rm -r --quiet .
+git rm -r --quiet . || true
 cp -a -R -T "${GITHUB_PAGES_SOURCE_DIR}" .
 git add .
 if git commit -am "${COMMIT_MESSAGE}" -m "${COMMIT_DETAILS}" --quiet
