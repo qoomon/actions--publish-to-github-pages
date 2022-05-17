@@ -1,7 +1,7 @@
 #!/bin/sh -l
 set -e -u
 
-# Adding repository directory to the git global config as a safe directory
+echo "Adding $GITHUB_WORKSPACE repository directory to the git global config as a safe directory"
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 git config --global --add safe.directory '/github/workspace'
 git config --global --add safe.directory "$PWD"
