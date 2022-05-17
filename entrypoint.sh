@@ -1,8 +1,6 @@
 #!/bin/sh -l
 set -e -u
-
-git config --global --add safe.directory "$GITHUB_WORKSPACE"
-git config --global --add safe.directory "$GITHUB_WORKSPACE*"
+git config --global --add safe.directory "$PWD"
 
 GITHUB_PAGES_BRANCH="${INPUT_GITHUB_PAGES_BRANCH:-"gh-pages"}"
 GITHUB_PAGES_SOURCE_DIR="$(cd "${INPUT_GITHUB_PAGES_SOURCE_DIR:-"dist"}" && pwd)"
@@ -19,8 +17,10 @@ echo "--- Checkout '${GITHUB_PAGES_BRANCH}' branch"
 rm -rf "${GITHUB_PAGES_DIR}"
 git clone --single-branch --branch "${GITHUB_PAGES_BRANCH}" --depth 1 \
   "${GITHUB_REPOSITORY_URI}" "${GITHUB_PAGES_DIR}"
-  
+
+
 cd "${GITHUB_PAGES_DIR}"
+git config --global --add safe.directory "$PWD"
 git config user.name 'github-actions[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
