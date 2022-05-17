@@ -1,10 +1,8 @@
 #!/bin/sh -l
 set -e -u
 
-echo "Adding $GITHUB_WORKSPACE repository directory to the git global config as a safe directory"
+echo "Adding $GITHUB_WORKSPACE to git global config as a safe directory"
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
-git config --global --add safe.directory '/github/workspace'
-git config --global --add safe.directory "$PWD"
 
 GITHUB_PAGES_BRANCH="${INPUT_GITHUB_PAGES_BRANCH:-"gh-pages"}"
 GITHUB_PAGES_SOURCE_DIR="$(cd "${INPUT_GITHUB_PAGES_SOURCE_DIR:-"dist"}" && pwd)"
