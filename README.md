@@ -1,5 +1,8 @@
 # Deploy To GitHub Pages Action
 
+> [!TIP]
+> Use [GitHub's deploy-pages](https://github.com/actions/deploy-pages) instead.
+
 
 ### Usage Example
 ```yaml
